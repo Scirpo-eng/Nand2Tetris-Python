@@ -15,4 +15,13 @@ class Parser:
         Returns:
             List of meaningful assembly code lines without comments and extra spaces
         """
+
+        res=[]
+        for line in asm_lines:
+            text=line.split('//')[0]
+            clean_text="".join(text.split())
+            if clean_text:
+                res.append(clean_text)
+
+        return res
         raise NotImplementedError()
