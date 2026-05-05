@@ -4,6 +4,7 @@ class Parser:
     Removes comments and whitespace from assembly code.
     """
 
+<<<<<<< HEAD
     def remove_whitespaces_and_comments(self, asm_lines: list[str]) -> list[str]:
         """
         Removes all comments and empty lines from the program.
@@ -24,4 +25,22 @@ class Parser:
                 res.append(clean_text)
 
         return res
+=======
+    def parse(self, vm_lines: list[str]) -> list[VmInstruction]:
+        """Parse VM source lines into a list of VmInstruction objects, skipping comments and blanks."""
+        res=[]
+        for num, line in enumerate(vm_lines, start=1):
+            clean_text=line.split('//')[0].strip()
+            if not clean_text:
+                continue
+            parts=clean_text.split()
+            command_name=parts[0]
+            args_command=parts[1:]
+            inst=VmInstruction(num, command_name, args_command)
+            res.append(inst)
+
+
+        
+
+>>>>>>> 293382a (Virtual machine part 1)
         raise NotImplementedError()
